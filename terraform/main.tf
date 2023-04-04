@@ -481,8 +481,8 @@ resource "aws_lb_listener" "app-listener" {
 }
 
 # Create the S3 bucket for storing Terraform state
-resource "aws_s3_bucket" "devops-project-terraform-state" {
-  bucket = "devops-project-terraform-state"
+resource "aws_s3_bucket" "project-terraform-state" {
+  bucket = "project-terraform-state"
   acl    = "private"
   versioning {
     enabled = true
@@ -496,7 +496,7 @@ resource "aws_s3_bucket" "devops-project-terraform-state" {
 # Configure the S3 backend
 terraform {
   backend "s3" {
-    bucket = "devops-project-terraform-state"
+    bucket = "project-terraform-state"
     key    = "prod/terraform.tfstate"
     region = "us-east-1"
   }
