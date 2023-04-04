@@ -69,7 +69,7 @@ resource "aws_subnet" "public_subnet1"{
 resource "aws_subnet" "public_subnet2"{
   vpc_id = aws_vpc.production_vpc.id
   cidr_block = var.public_subnet2_cidr
-  availability_zone = "eu-central-1b"
+  availability_zone = "us-east-1b"
   map_public_ip_on_launch = true
 
   tags = {
@@ -81,7 +81,7 @@ resource "aws_subnet" "public_subnet2"{
 resource "aws_subnet" "private_subnet"{
   vpc_id = aws_vpc.production_vpc.id
   cidr_block = var.private_subnet_cidr
-  availability_zone = "eu-central-1b"
+  availability_zone = "us-east-1b"
 
   tags = {
     Name = "Private subnet"
@@ -498,6 +498,6 @@ terraform {
   backend "s3" {
     bucket = "devops-project-terraform-state"
     key    = "prod/terraform.tfstate"
-    region = "eu-central-1"
+    region = "us-east-1"
   }
 }
